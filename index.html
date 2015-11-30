@@ -13,7 +13,15 @@
 			<h2>Student List</h2>
 			<ul>
 				<li ng-repeat='item in students'>
-					{{item.name}}
+					<span ng-click='editing = true' ng-hide='editing'>
+						{{item.name}} <a ng-click="deleteStudent(item)">Delete</a>
+					</span>
+					<span class='form-group' ng-show='editing' ng-submit='editing = false'>
+						<form role='form' class='form-inline'>
+							<input type="text" class='form-control input-sm' ng-model='item.name' required>
+							<button class='btn btn-warning btn-sm' type='submit'>Save Changes</button>
+						</form>
+					</span>
 				</li>
 			</ul>
 			
