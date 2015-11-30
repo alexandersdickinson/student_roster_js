@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='studentRoster'>
+	<head>
+		<title>Student Roster</title>
+		<script src='lib/angular.js'></script>
+		<script src='app.js'></script>
+		<script src='js/StudentsController.js'></script>
+		<link rel="stylesheet" href="css/bootstrap.css" type="text/css">
+	</head>
+	
+	<body>
+		<div class='container-fluid' ng-controller='StudentsCtrl'>
+			<h2>Student List</h2>
+			<ul>
+				<li ng-repeat='item in students'>
+					{{item.name}}
+				</li>
+			</ul>
+			
+			<form ng-submit='addStudent()' role='form'>
+				<div class='form-group'>
+					<label for='student-name'></label>
+					<input type='text' name='student-name' ng-model='studentName' class='form-control'>
+				</div>
+				<button type='submit' class='btn btn-default'>Add Student</button>
+			</form>
+		</div>
+	</body>
+</html>
